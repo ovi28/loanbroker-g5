@@ -2,7 +2,6 @@ package main;
 
 import com.rabbitmq.client.GetResponse;
 import models.LoanRequest;
-import org.json.JSONObject;
 import services.CreditScoreService;
 import workers.Consumer;
 import workers.Publisher;
