@@ -48,6 +48,7 @@ public class CreditScoreService_ServiceLocator extends org.apache.axis.client.Se
 		CreditScoreServicePortWSDDServiceName = name;
 	}
 
+        
 	public org.bank.credit.web.service.CreditScoreService_PortType getCreditScoreServicePort()
 			throws javax.xml.rpc.ServiceException {
 		java.net.URL endpoint;
@@ -59,6 +60,7 @@ public class CreditScoreService_ServiceLocator extends org.apache.axis.client.Se
 		return getCreditScoreServicePort(endpoint);
 	}
 
+        
 	public org.bank.credit.web.service.CreditScoreService_PortType getCreditScoreServicePort(java.net.URL portAddress)
 			throws javax.xml.rpc.ServiceException {
 		try {
@@ -79,6 +81,7 @@ public class CreditScoreService_ServiceLocator extends org.apache.axis.client.Se
 	 * For the given interface, get the stub implementation. If this service has no
 	 * port for the given interface, then ServiceException is thrown.
 	 */
+        
 	public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
 		try {
 			if (org.bank.credit.web.service.CreditScoreService_PortType.class
@@ -99,6 +102,7 @@ public class CreditScoreService_ServiceLocator extends org.apache.axis.client.Se
 	 * For the given interface, get the stub implementation. If this service has no
 	 * port for the given interface, then ServiceException is thrown.
 	 */
+        
 	public java.rmi.Remote getPort(javax.xml.namespace.QName portName, Class serviceEndpointInterface)
 			throws javax.xml.rpc.ServiceException {
 		if (portName == null) {
@@ -149,49 +153,49 @@ public class CreditScoreService_ServiceLocator extends org.apache.axis.client.Se
 		setEndpointAddress(portName.getLocalPart(), address);
 	}
 
-	@Override
+	
 	public Call createCall() throws ServiceException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public Call createCall(QName arg0) throws ServiceException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public Call createCall(QName arg0, QName arg1) throws ServiceException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public Call createCall(QName arg0, String arg1) throws ServiceException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public Call[] getCalls(QName arg0) throws ServiceException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public HandlerRegistry getHandlerRegistry() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public TypeMappingRegistry getTypeMappingRegistry() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public URL getWSDLDocumentLocation() {
 		// TODO Auto-generated method stub
 		return null;

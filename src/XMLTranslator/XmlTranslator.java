@@ -23,7 +23,7 @@ public class XmlTranslator {
     private static final String BANK_HOST = "datdb.cphbusiness.dk";
     private static final String PUBLISH_EXCHANGE_NAME = "cphbusiness.bankXML";
     private static final String REPLY_QUEUE_NAME = "Bank_Response_Queue";
-    //private static final String HOST_NAME = "hostAdrs";
+    private static final String HOST_NAME = "localhost";
 
     public static void main(String[] args) throws Exception {
 
