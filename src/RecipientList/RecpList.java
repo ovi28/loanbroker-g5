@@ -16,7 +16,7 @@ import java.util.concurrent.TimeoutException;
 
 /**
  *
- * @author user
+ * @author Alex
  */
 public class RecpList {
     private static final String CONSUME_QUEUE_NAME = "Get_Banks_Queue";

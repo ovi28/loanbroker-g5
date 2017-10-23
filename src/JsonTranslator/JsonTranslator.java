@@ -22,7 +22,7 @@ import org.json.XML;
 
 /**
  *
- * @author user
+ * @author Alex
  */
 public class JsonTranslator {
     

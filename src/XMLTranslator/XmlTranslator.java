@@ -15,7 +15,7 @@ import java.util.concurrent.TimeoutException;
 
 /**
  *
- * @author user
+ * @author Alex
  */
 public class XmlTranslator {
      
@@ -40,10 +40,6 @@ public class XmlTranslator {
         Channel hostConsumeChannel = hostConnection.createChannel();
 
         String xmlRequest = receiveMessage(hostConsumeChannel);
-//        String xmlRequest = "<LoanRequest>    <ssn>12345678</ssn>   
-//        <creditScore>690</creditScore>    <loanAmount>1000.0</loanAmount>   
-//                <loanDuration>1973-01-01 01:00:00.0 CET</loanDuration> 
-//                        </LoanRequest>";
         getBankXmlResponseAndForward(xmlRequest, bankPublishChannel);
     }
 
@@ -77,7 +73,7 @@ public class XmlTranslator {
 
         System.out.println("Waiting for response...");
 
-        //Sending request and routing the request using a builder.
+        //Routing request via Builder.
         AMQP.BasicProperties builder = new AMQP.BasicProperties
                 .Builder()
                 .contentType("application/xml")
@@ -85,12 +81,12 @@ public class XmlTranslator {
                 .replyTo(REPLY_QUEUE_NAME)
                 .build();
 
-        //Publish and route message
+        
         channel.basicPublish(PUBLISH_EXCHANGE_NAME, replyKey, builder, xmlRequest.getBytes());
 
         channel.close();
         channel.getConnection().close();
-        System.out.println("[x] forwarded response successfully!");
+        System.out.println("[x] Success!");
 
     }
     

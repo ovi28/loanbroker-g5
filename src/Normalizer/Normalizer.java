@@ -21,7 +21,7 @@ import org.json.XML;
 
 /**
  *
- * @author user
+ * @author Alex
  */
 public class Normalizer {
     private static final String BANK_HOST = "datdb.cphbusiness.dk";
@@ -57,7 +57,7 @@ public class Normalizer {
                 case "XML":
                     break;
                 case "unknown":
-                    System.out.println("[ ] Error - The incoming message format was not recognised.");
+                    System.out.println("[ ] Error - Not recognized.");
                     continue;
             }
 
@@ -69,13 +69,18 @@ public class Normalizer {
 
 
     }
+    private static void sendMessage(String message, Channel channel) throws IOException, TimeoutException {
+        try {
+            channel.queueDeclare(PUBLISH_QUEUE_NAME, false, false, false, null);
+            channel.basicPublish("", PUBLISH_QUEUE_NAME, null, message.getBytes());
+            System.out.println("[x] sent '" + message + "'");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
-    /**
-     * Identifies the format of the specified message.
-     *
-     * @param message to identify.
-     * @return identification string.
-     */
+
+    }
+
     private static String identifyMessage(String message) {
         String identifier = "";
         if (message.startsWith("{")) identifier = "JSON";
@@ -108,8 +113,7 @@ public class Normalizer {
 
         QueueingConsumer consumer = new QueueingConsumer(channel);
 
-        channel.basicConsume(CONSUME_QUEUE_NAME, false, consumer); //TODO change Boolean parameter to "true" after testing.
-
+        channel.basicConsume(CONSUME_QUEUE_NAME, false, consumer); 
         List<String> loanResponses = new ArrayList<>();
         String response = "";
         try {
@@ -133,16 +137,6 @@ public class Normalizer {
 
     }
 
-    private static void sendMessage(String message, Channel channel) throws IOException, TimeoutException {
-        try {
-            channel.queueDeclare(PUBLISH_QUEUE_NAME, false, false, false, null);
-            channel.basicPublish("", PUBLISH_QUEUE_NAME, null, message.getBytes());
-            System.out.println("[x] sent '" + message + "'");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-
-
-    }
+    
     
 }
