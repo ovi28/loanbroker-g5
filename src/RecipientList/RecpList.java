@@ -46,14 +46,15 @@ public class RecpList {
                     properBankQueue = XML_BANK_TRANSLATOR_QUEUE;
                     properChannel = connection.createChannel();
                     break;
-                case "CPHBusinessBankJson":
-                    properBankQueue = JSON_BANK_TRANSLATOR_QUEUE;
-                    properChannel = connection.createChannel();
-                    break;
                 case "CPHBusinessBankWSDL":
                     properBankQueue = WSDL_BANK_TRANSLATOR_QUEUE;
                     properChannel = connection.createChannel();
                     break;
+                case "CPHBusinessBankJson":
+                    properBankQueue = JSON_BANK_TRANSLATOR_QUEUE;
+                    properChannel = connection.createChannel();
+                    break;
+                
             }
 
             sendMessage(loanRequest.getBytes(), properChannel, properBankQueue);

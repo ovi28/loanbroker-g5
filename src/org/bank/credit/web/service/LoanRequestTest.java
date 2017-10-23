@@ -47,21 +47,16 @@ public class LoanRequestTest {
         factory.setHost(HOST_NAME);
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
-
         Loan loan = new Loan();
 
         Scanner reader = new Scanner(System.in);
         System.out.println("Enter your social security number in the format ******-****:");
         loan.setSSN(reader.next());
-
         System.out.println("Enter how much you want to loan:");
         loan.setLoanAmount(reader.nextDouble());
-
         System.out.println("Enter the loan's duration in days:");
         loan.setLoanDuration(reader.nextInt());
-
         reader.close();
-
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date date = dateFormat.parse("1970-01-01");
         Calendar calendar = Calendar.getInstance();
@@ -70,7 +65,6 @@ public class LoanRequestTest {
         String output = dateFormat.format(calendar.getTime());
 
         String finalLoanDuration = output + " 01:00:00.0 CET";
-
         // writes the xml and then puts it on a queue.
         byte[] xmlAsBytes = writeXML(loan.getSSN(), loan.getLoanAmount(), finalLoanDuration);
         sendMessage(xmlAsBytes, channel);

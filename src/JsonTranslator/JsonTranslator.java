@@ -88,7 +88,7 @@ public class JsonTranslator {
             int startInd = jsonString.indexOf("{", 1);
             int endInd = jsonString.lastIndexOf("}");
             jsonString = jsonString.substring(startInd, endInd);
-            //removing paranteses
+           
 
             //Transforming and taking loanDuration
             jsonObject = new JSONObject(jsonString);
